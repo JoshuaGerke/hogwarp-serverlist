@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "btn": "url('img/button.png')",
-        "desktopbg": "url('img/bg.png')",
-        "mobilebg": "url('img/bgmobile.png')",
+        "btn": "url('/img/button.png')",
+        "desktopbg": "url('/img/bg.png')",
+        "mobilebg": "url('/img/bgmobile.png')",
       },
       colors: {
         "baseFont": "rgb(255, 228, 184)",

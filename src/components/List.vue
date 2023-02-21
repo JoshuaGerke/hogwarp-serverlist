@@ -48,6 +48,7 @@
 <script>
 import { defineComponent } from 'vue'
 import "flag-icons/css/flag-icons.min.css";
+import axios from "axios";
 export default defineComponent({
   name: 'List',
   components: {},
@@ -90,11 +91,12 @@ export default defineComponent({
       });
       return arr;
     },
-    getServers() {
-      return fetch('https://list.hogwarp.com/list')
-        .then((response) => response.json())
-        .then((json) => {
-          this.servers = json.servers;
+    async getServers() {
+
+      return axios.get('/api/list')
+        .then((res) => {
+          if(res && res.data && res.data.servers);
+          this.servers = res.data.servers
         }).catch((error) => {
           this.servers = [{"desc":"Test","icon_url":"","ip":"???.???.???.???","max_player_count":'?',"name":"?????????","pass":false,"player_count":'?',"port":'???',"public":true,"tags":"","tick":60,"version":"???"}];
         });
