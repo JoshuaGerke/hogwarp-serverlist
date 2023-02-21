@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hogwarp-serverlist.iml" filepath="$PROJECT_DIR$/.idea/hogwarp-serverlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hogwarp-serverlist-laravel.iml" filepath="$PROJECT_DIR$/.idea/hogwarp-serverlist-laravel.iml" />
     </modules>
   </component>
 </project>
