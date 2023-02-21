@@ -119,13 +119,13 @@ body::after {
   right: 0;
   top: 0;
   bottom: 0;
-  background: url("img/bgmobile.png");
+  background: url("/img/bgmobile.png");
   background-size: 100% 100%;
 }
 
 @media screen and (min-width: 768px) {
   body::after {
-    background: url("img/bg.png");
+    background: url("/img/bg.png");
     background-size: 100% 100%;
   }
 
