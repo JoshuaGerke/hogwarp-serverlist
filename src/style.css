@@ -132,3 +132,18 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Tongari';
+    src: url('assets/fonts/Tongari-Regular.eot');
+    src: url('assets/fonts/Tongari-Regular.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/Tongari-Regular.woff2') format('woff2'),
+    url('assets/fonts/Tongari-Regular.woff') format('woff'),
+    url('assets/fonts/Tongari-Regular.ttf') format('truetype'),
+    url('assets/fonts/Tongari-Regular.svg#Tongari-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
