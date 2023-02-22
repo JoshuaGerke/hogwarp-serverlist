@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-7xl mx-auto h-screen">
         <div class="mb-10 mt-[6rem]">
-            <div class="text-[#eed385] font-[Tongari] text-3xl font-bold text-center">Inofficial HogWarp Server List</div>
+            <div class="text-[#eed385] font-[Tongari] text-3xl font-bold text-center">Unofficial HogWarp Server List</div>
         </div>
         <div class="flex-wrap h-[76%] md:h-auto md:flex">
             <div class="mx-auto w-11/12 md:w-9/12 mb-auto h-[75%]">
