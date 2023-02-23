@@ -68,6 +68,7 @@ export default defineComponent({
             }
         },
         getCountryName(countryCode) {
+            if(!countryCode) return "";
             return new Intl.DisplayNames(['en'], {type: 'region'}).of(countryCode);
         },
         imageUrlAlt(img) {
