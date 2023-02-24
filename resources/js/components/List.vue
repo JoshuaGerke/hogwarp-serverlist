@@ -1,39 +1,39 @@
 <template>
     <div class="max-w-7xl mx-auto h-screen">
-        <div class="mb-10 mt-[6rem]">
+        <div class="mb-2 xl:mb-10 mt-[6rem]">
             <div class="text-[#eed385] font-[Tongari] text-3xl font-bold text-center">Unofficial HogWarp Server List</div>
         </div>
-        <div class="flex-wrap h-[76%] md:h-auto md:flex">
-            <div class="mx-auto w-11/12 md:w-9/12 mb-auto h-[75%]">
+        <div class="flex-wrap h-[76%] xl:h-auto xl:flex">
+            <div class="mx-auto w-11/12 xl:w-9/12 mb-auto h-[75%]">
                 <div class="w-full flex flex-wrap items-center h-full content-start">
                     <div class="flex w-full h-12 bg-btn mb-2 items-center text-[#eed385] font-[Tongari] font-semibold" style="background-size: 100% 100%;">
                         <div class="w-1/12"></div>
                         <div class="w-6/12 mb-2">Name</div>
                         <div class="w-2/12 mb-2">Players</div>
                         <div class="w-2/12 mb-2">Version</div>
-                        <div class="w-2/12 mb-2">Language</div>
+                        <div class="w-2/12 mb-2">Lang</div>
                     </div>
-                    <div class="w-full flex flex-wrap items-center overflow-auto h-[80%] md:h-[40rem] content-start">
+                    <div class="w-full flex flex-wrap items-center overflow-auto h-[80%] xl:h-[40rem] content-start">
                         <div v-for="server in sortArr(servers)" class="flex w-full h-14 bg-btn mb-2 items-center " style="background-size: 100% 100%">
-                            <div class="w-1/12"><img v-if="server.icon_url" @error="imageUrlAlt" class="mx-auto w-8 h-8" :src="server.icon_url"/>
+                            <div class="w-2/12 xl:w-1/12"><img v-if="server.icon_url" @error="imageUrlAlt" class="mx-auto w-8 h-8" :src="server.icon_url"/>
                                 <div class="text-[#eed385] font-[Tongari] text-3xl text-center">{{!server.icon_url ? '?' : ''}}</div></div>
                             <div class="w-6/12 text-[#eed385] font-[Tongari] mb-2 flex flex-wrap">
-                                <div class="block md:hidden w-full -mb-1">{{server.name.length >= 30 ? server.name.substring(0, 27) + '...' : server.name.substring(0, 29)}}</div>
-                                <div class="hidden md:block w-full -mb-1">{{server.name.length >= 45 ? server.name.substring(0, 43) + '...' : server.name.substring(0, 45)}}</div><div @click="copyURL(server.ip + ':' + server.port)" class="cursor-pointer w-max text-sm">{{server.ip}}:{{server.port}}</div>
+                                <div class="block xl:hidden w-full -mb-1">{{server.name.length >= 20 ? server.name.substring(0, 17) + '...' : server.name.substring(0, 29)}}</div>
+                                <div class="hidden xl:block w-full -mb-1">{{server.name.length >= 45 ? server.name.substring(0, 43) + '...' : server.name.substring(0, 45)}}</div><div @click="copyURL(server.ip + ':' + server.port)" class="hidden xl:block cursor-pointer w-max text-sm">{{server.ip}}:{{server.port}}</div>
                             </div>
                             <div class="w-2/12 text-[#eed385] font-[Tongari] mb-2">{{server.player_count}}/{{server.max_player_count}}</div>
                             <div class="w-2/12 text-[#eed385] font-[Tongari] mb-2">{{server.version}}</div>
-                            <div class="w-2/12 text-[#eed385] font-[Tongari] mb-2 flex gap-2"><div :class="`fi fi-${server.tags.toLowerCase()}`"></div><div class="">{{getCountryName(server.tags)}}</div></div>
+                            <div class="w-2/12 text-[#eed385] font-[Tongari] mb-2 flex gap-2"><div :class="`ml-4 xl:ml-0 fi fi-${server.tags.toLowerCase()}`"></div><div class="hidden xl:block">{{getCountryName(server.tags)}}</div></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="w-11/12 mx-auto md:w-3/12">
-                <div class="max-w-[20rem] md:max-w-none mx-auto w-full md:ml-20 flex md:flex-wrap items-center">
-                    <div class="mx-auto w-1/2 md:w-full"><img class="w-[8rem] md:w-full" :src="'img/bird.png'"></div>
-                    <div class="w-1/2 md:w-full flex flex-wrap">
-                        <div class="uppercase md:text-center text-2xl text-[#eed385] font-[Tongari] w-auto md:w-full">Servers: <b class="text-3xl">{{servers.length}}</b></div>
-                        <div class="uppercase md:text-center text-2xl text-[#eed385] font-[Tongari] w-auto md:w-full">Online Players: <b class="text-3xl">{{getAllPlayers()}}</b></div>
+            <div class="w-11/12 mx-auto xl:w-3/12">
+                <div class="max-w-[20rem] xl:max-w-none mx-auto w-full xl:ml-20 flex xl:flex-wrap items-center">
+                    <div class="mx-auto w-1/2 xl:w-full"><img class="w-[8rem] xl:w-full" :src="'img/bird.png'"></div>
+                    <div class="w-1/2 xl:w-full flex flex-wrap">
+                        <div class="uppercase xl:text-center text-2xl text-[#eed385] font-[Tongari] w-auto xl:w-full">Servers: <b class="text-3xl">{{servers.length}}</b></div>
+                        <div class="uppercase xl:text-center text-2xl text-[#eed385] font-[Tongari] w-auto xl:w-full">Online Players: <b class="text-3xl">{{getAllPlayers()}}</b></div>
                     </div>
 
                 </div>
@@ -43,6 +43,7 @@
             <a class="mx-auto w-full text-[#a06738] text-md font-normal text-center uppercase font-normal block" target="_blank" href="https://joshua-gerke.de/imprint">Imprint</a>
         </div>
     </div>
+    <img :src="'img/freddie.png'" class="fixed bottom-0 left-1/2 -translate-x-1/2" v-if="easteregg">
 </template>
 
 <script>
@@ -54,13 +55,22 @@ export default defineComponent({
     components: {},
     data () {
         return {
-            servers: []
+            servers: [],
+            easteregg: false,
         }
     },
     setup() {
         return {}
     },
     methods: {
+        myEventHandler(e) {
+            // your code for handling resize...
+            if(window.innerHeight > 1800) {
+                this.easteregg = true;
+            } else {
+                this.easteregg = false;
+            }
+        },
         async copyURL(mytext) {
             try {
                 await navigator.clipboard.writeText(mytext);
@@ -112,6 +122,10 @@ export default defineComponent({
     },
     mounted() {
         this.getServers();
+        window.addEventListener("resize", this.myEventHandler);
+    },
+    unmounted() {
+        window.removeEventListener("resize", this.myEventHandler);
     },
 })
 </script>
