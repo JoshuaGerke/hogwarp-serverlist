@@ -69,7 +69,13 @@ export default defineComponent({
         },
         getCountryName(countryCode) {
             if(!countryCode) return "";
-            return new Intl.DisplayNames(['en'], {type: 'region'}).of(countryCode);
+            const intl = new Intl.DisplayNames(['en'], {type: 'region', fallback:'none'});
+            try {
+                return intl.of(countryCode);
+            } catch(e) {
+                return "";
+            }
+
         },
         imageUrlAlt(img) {
             img.target.style.display = "none";
@@ -99,7 +105,8 @@ export default defineComponent({
                     if(res && res.data && res.data.servers);
                     this.servers = res.data.servers
                 }).catch((error) => {
-                    this.servers = [{"desc":"Test","icon_url":"","ip":"???.???.???.???","max_player_count":'?',"name":"?????????","pass":false,"player_count":'?',"port":'???',"public":true,"tags":"","tick":60,"version":"???"}];
+                    //this.servers = [{"desc":"Test","icon_url":"","ip":"???.???.???.???","max_player_count":'?',"name":"?????????","pass":false,"player_count":'?',"port":'???',"public":true,"tags":"","tick":60,"version":"???"}];
+                    this.servers = [{"desc":"hogwarp.moonded.com","icon_url":"https://files.moonded.com/static/logo.png","ip":"2001:4ba0:cafe:12d9::1","max_player_count":64,"name":"hogwarp.moonded.com | HogWarp Test Server","pass":false,"player_count":0,"port":11778,"public":true,"tags":"","tick":60,"version":"385f9dd"},{"desc":"legacy.downtownrp.com.br - Hosted in South America - Brazil","icon_url":"https://i.imgur.com/Kxh9IrU.png","ip":"2804:7110:4000:10b:8122:c6c2:9d04:c821","max_player_count":2023,"name":"Downtown Legacy - DEV","pass":false,"player_count":0,"port":11778,"public":true,"tags":"","tick":60,"version":"385f9dd"},{"desc":"PDRP","icon_url":"https://cdn.discordapp.com/attachments/472534281944563745/1076621727100063754/hogwartsrp.png","ip":"147.135.136.227","max_player_count":900,"name":"PDRP - DEV","pass":false,"player_count":0,"port":11778,"public":true,"tags":"","tick":60,"version":"385f9dd"},{"desc":"🚧 En contrucción 🚧","icon_url":"https://imgur.com/G0D1ihj.png","ip":"20.111.14.151","max_player_count":6174,"name":"[ES] LumosRP.com | ✨ Lumos RP ✨","pass":false,"player_count":0,"port":11778,"public":true,"tags":"ES","tick":60,"version":"385f9dd"},{"desc":"mygaming.network","icon_url":"","ip":"85.214.158.14","max_player_count":256,"name":"MyGaming Network | Test Server","pass":false,"player_count":0,"port":11778,"public":true,"tags":"GER","tick":60,"version":"385f9dd"},{"desc":"Serveur roleplay FR en creation","icon_url":"https://cdn.discordapp.com/attachments/951602312030351400/1076826684893970542/loup2-logo-discord-sans-ecriture.png","ip":"198.251.88.195","max_player_count":4000,"name":"[FR] Mystery Community - Le monde du roleplay","pass":false,"player_count":0,"port":11778,"public":true,"tags":"FR","tick":60,"version":"385f9dd"},{"desc":"","icon_url":"","ip":"141.145.196.133","max_player_count":64,"name":"HogWarp Official Server","pass":false,"player_count":1,"port":11778,"public":true,"tags":"","tick":60,"version":"385f9dd"},{"desc":"Co-op Server","icon_url":"https://i.imgur.com/Gj4lsQb.png","ip":"2a01:7e00::f03c:93ff:fe0d:7f4d","max_player_count":69,"name":"cryptic.live","pass":false,"player_count":2,"port":42069,"public":true,"tags":"","tick":60,"version":"385f9dd"}];
                 });
         },
     },
